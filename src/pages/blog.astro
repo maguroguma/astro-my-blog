@@ -12,9 +12,18 @@ const pageTitle = '記事一覧';
 
   <ul>
     {
-      allPosts.map((post) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
-      ))
+      allPosts
+        .sort(
+          (a, b) =>
+            new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate),
+        )
+        .map((post) => (
+          <BlogPost
+            url={post.url}
+            title={post.frontmatter.title}
+            pubDate={post.frontmatter.pubDate}
+          />
+        ))
     }
   </ul>
 </BaseLayout>

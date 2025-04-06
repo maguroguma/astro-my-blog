@@ -1,5 +1,11 @@
 ---
-const { url, title } = Astro.props;
+const { url, title, pubDate } = Astro.props;
+
+const date = new Date(pubDate);
+const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+const formattedDate = date
+  .toLocaleDateString('ja-JP', options)
+  .replace(/\//g, '/'); // 日本の形式で日付をフォーマット
 ---
 
-<li><a href={url}>{title}</a></li>
+<li><a href={url}>{formattedDate}: {title}</a></li>

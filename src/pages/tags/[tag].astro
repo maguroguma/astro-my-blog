@@ -27,9 +27,18 @@ const { posts } = Astro.props;
   <p>"{tag}" のタグが付いた記事</p>
   <ul>
     {
-      posts.map((post) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
-      ))
+      posts
+        .sort(
+          (a, b) =>
+            new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate),
+        )
+        .map((post) => (
+          <BlogPost
+            url={post.url}
+            title={post.frontmatter.title}
+            pubDate={post.frontmatter.pubDate}
+          />
+        ))
     }
   </ul>
 </BaseLayout>
