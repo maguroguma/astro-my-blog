@@ -3,7 +3,6 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 'いまさら SKK に入門してみた'
 pubDate: 2024-11-03
 description: 'vim から SKK に入門してみたら、思ったよりとっつきやすかった、という話。'
-author: 'Astro学習者'
 image:
     url: 'https://www.vim.org/images/vimlogo.svg'
     alt: 'Vim のロゴ。'
