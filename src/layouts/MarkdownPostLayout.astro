@@ -30,8 +30,8 @@ const { frontmatter } = Astro.props;
   <slot />
 
   {
-    frontmatter.updateAt && (
-      <p>※{frontmatter.updateAt.toString().slice(0, 10)} に更新しました。</p>
+    frontmatter.updatedAt && (
+      <p>※{frontmatter.updatedAt.toString().slice(0, 10)} に更新しました。</p>
     )
   }
 </BaseLayout>
