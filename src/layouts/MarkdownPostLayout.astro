@@ -28,6 +28,12 @@ const { frontmatter } = Astro.props;
   </div>
 
   <slot />
+
+  {
+    frontmatter.updateAt && (
+      <p>※{frontmatter.updateAt.toString().slice(0, 10)} に更新しました。</p>
+    )
+  }
 </BaseLayout>
 
 <style>
