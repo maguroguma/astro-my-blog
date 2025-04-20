@@ -128,6 +128,21 @@ import ThemeIcon from './ThemeIcon.astro';
   }
 
   @media screen and (min-width: 636px) {
+    .header-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+    }
+    .logo-container {
+      justify-self: start;
+    }
+    .desktop-nav {
+      justify-self: center;
+    }
+    .header-actions {
+      justify-self: end;
+    }
+
     .desktop-nav {
       display: block;
     }
