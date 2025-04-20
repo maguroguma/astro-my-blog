@@ -4,12 +4,28 @@ import Hamburger from './Hamburger.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
 
-<header>
-  <nav>
-    <Hamburger />
-    <ThemeIcon />
-    <Navigation />
+<header class="page-header">
+  <nav class="header-container">
+    <div class="logo-container">
+      <a href="/" class="logo-link">
+        <span class="logo-text">Leverage Copy</span>
+        <span class="cursor-blink">_</span>
+      </a>
+    </div>
+
+    <div class="desktop-nav">
+      <Navigation />
+    </div>
+
+    <div class="header-actions">
+      <ThemeIcon />
+      <Hamburger />
+    </div>
   </nav>
+
+  <div class="mobile-nav">
+    <Navigation />
+  </div>
 </header>
 
 <script is:inline>
@@ -43,3 +59,81 @@ import ThemeIcon from './ThemeIcon.astro';
     .getElementById('themeToggle')
     .addEventListener('click', handleToggleClick);
 </script>
+
+<style>
+  .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    border-bottom: 1px solid #e2e8f0;
+    backdrop-filter: blur(100px);
+    padding: 0.5rem 0.5rem;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:;
+    max-width: 80ch;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .cursor-blink {
+    margin-left: 0.25rem;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+    padding: 0 0.5rem;
+  }
+
+  @media screen and (min-width: 636px) {
+    .desktop-nav {
+      display: block;
+    }
+    .mobile-nav {
+      display: none;
+      border-top: none;
+    }
+  }
+</style>

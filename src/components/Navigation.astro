@@ -8,3 +8,45 @@
   <a href="/blog/">記事</a>
   <a href="/tags/">タグ</a>
 </div>
+
+<style>
+  .nav-links {
+    width: 100%;
+    top: 5rem;
+    left: 48px;
+    background-color: #ff9776;
+    display: none;
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 5px 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: #ff9776;
+  }
+
+  .expanded {
+    display: unset;
+  }
+
+  .dark .nav-links a {
+    color: #fff;
+  }
+
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      position: static;
+      width: auto;
+      background: none;
+    }
+  }
+</style>

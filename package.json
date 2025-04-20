@@ -7,6 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "devToolbar:disable": "astro preferences disable devToolbar",
+    "devToolbar:enable": "astro preferences enable devToolbar",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
