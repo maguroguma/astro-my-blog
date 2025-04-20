@@ -21,10 +21,8 @@
 
   .nav-links a {
     display: block;
-    /* text-align: center; */
-    padding: 5px 0;
+    padding: 5px 5px;
     text-decoration: none;
-    /* font-size: 1.2rem; */
     text-transform: uppercase;
   }
 
@@ -43,15 +41,12 @@
 
   @media screen and (min-width: 636px) {
     .nav-links {
-      display: block;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
       position: static;
       width: auto;
       background: none;
-    }
-
-    .nav-links a {
-      display: inline-block;
-      /* padding: 15px 20px; */
     }
   }
 </style>
