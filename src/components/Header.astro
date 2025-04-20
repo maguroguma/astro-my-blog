@@ -87,10 +87,12 @@ import ThemeIcon from './ThemeIcon.astro';
     gap: 0.5rem;
   }
 
-  .logo-link {
+  .logo-link,
+  .log-link:visited {
     display: flex;
     align-items: center;
     text-decoration: none;
+    color: inherit;
   }
 
   .logo-text {
@@ -128,6 +130,21 @@ import ThemeIcon from './ThemeIcon.astro';
   }
 
   @media screen and (min-width: 636px) {
+    .header-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+    }
+    .logo-container {
+      justify-self: start;
+    }
+    .desktop-nav {
+      justify-self: center;
+    }
+    .header-actions {
+      justify-self: end;
+    }
+
     .desktop-nav {
       display: block;
     }
