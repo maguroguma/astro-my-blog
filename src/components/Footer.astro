@@ -1,5 +1,5 @@
 ---
-import Social from './Social.astro';
+import '@fortawesome/fontawesome-free/css/all.css';
 ---
 
 <footer class="site-footer">
@@ -10,8 +10,12 @@ import Social from './Social.astro';
       </p>
     </div>
     <div class="footer-right">
-      <Social platform="twitter" username="maguroguma0712" />
-      <Social platform="github" username="maguroguma" />
+      <a class="social-link" href={`https://x.com/maguroguma0712`}>
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a class="social-link" href={`https://github.com/maguroguma`}>
+        <i class="fab fa-github"></i>
+      </a>
     </div>
   </div>
 </footer>
@@ -19,7 +23,7 @@ import Social from './Social.astro';
 <style>
   .site-footer {
     border-top: 1px solid #e2e8f0;
-    padding: 1rem 0.5rem;
+    padding: 1rem 1rem;
   }
 
   .footer-container {
@@ -28,6 +32,12 @@ import Social from './Social.astro';
     align-items: center;
     max-width: 80ch;
     margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: row;
     gap: 1rem;
   }
 
