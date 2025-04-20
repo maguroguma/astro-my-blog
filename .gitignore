@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # original
 _maguroguma/**/*
+_docs/**/*
