@@ -17,13 +17,25 @@ html {
 body {
   margin: 0 auto; /* コンテナを中央に配置する */
   width: 100%;
-  max-width: 80ch; /* padding, border までを含めた最大幅 */
-  padding: 1rem;
   line-height: 1.5;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-main {
+  flex: 1;
+
+  width: 100%;
+  max-width: 80ch; /* padding, border までを含めた最大幅 */
+  margin: 0 auto;
 }
 
 h1 {
@@ -38,78 +50,14 @@ img {
   vertical-align: bottom; /* 画像の下に空くスペースを消す */
 }
 
-/* ナビゲーションのスタイル */
-
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
-}
-
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ff9776;
-}
-
-.expanded {
-  display: unset;
-}
-
 /* PC やタブレットのルール */
 @media screen and (min-width: 636px) {
   html {
     font-size: 16px;
   }
-
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-
-  .hamburger {
-    display: none;
-  }
 }
 
 html.dark {
   background-color: #0d0950;
-  color: #fff;
-}
-
-.dark .nav-links a {
   color: #fff;
 }

@@ -2,15 +2,45 @@
 import Social from './Social.astro';
 ---
 
-<footer>
-  <Social platform="twitter" username="maguroguma0712" />
-  <Social platform="github" username="maguroguma" />
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <p class="copyright">
+        &copy; {new Date().getFullYear()} maguroguma. All rights reserved.
+      </p>
+    </div>
+    <div class="footer-right">
+      <Social platform="twitter" username="maguroguma0712" />
+      <Social platform="github" username="maguroguma" />
+    </div>
+  </div>
 </footer>
 
 <style>
-  footer {
+  .site-footer {
+    border-top: 1px solid #e2e8f0;
+    padding: 1rem 0.5rem;
+  }
+
+  .footer-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 80ch;
+    margin: 0 auto;
     gap: 1rem;
-    margin-top: 2rem;
+  }
+
+  .copyright {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+
+  @media screen and (min-width: 636px) {
+    .footer-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 </style>
