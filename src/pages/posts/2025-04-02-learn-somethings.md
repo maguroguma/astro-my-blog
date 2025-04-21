@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: '@/layouts/MarkdownPostLayout.astro'
 title: '何かを学ぶときに尻ごむ必要はない'
 pubDate: 2025-04-02
 description: '「これやって本当に意味あるんだろうか？」みたいな気持ちになることがしばしばあるので、
