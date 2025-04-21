@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "typecheck": "astro check",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -16,12 +17,14 @@
     "test:visual": "cypress open"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/preact": "^4.0.7",
     "@astrojs/rss": "^4.0.11",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "astro": "^5.5.5",
     "normalize.css": "^8.0.1",
-    "preact": "^10.26.4"
+    "preact": "^10.26.4",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.29.0",
