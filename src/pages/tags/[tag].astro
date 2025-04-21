@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogPost from '../../components/BlogPost.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogPost from '@/components/BlogPost.astro';
 
 type Route = {
   params: { tag: string };
@@ -10,7 +10,7 @@ type Route = {
 // この関数で返した各 params ごとに Astro はビルド時に HTML ファイルを生成する
 // params プロパティをもつ各オブジェクトが対応するルートを生成する
 export async function getStaticPaths(): Promise<Route[]> {
-  const allPosts = await Astro.glob('../posts/*.md'); // FIXME: 型付けが甘い
+  const allPosts = await Astro.glob('@/pages/posts/*.md'); // FIXME: 型付けが甘い
   const uniqueTags = [
     ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
   ];
