@@ -2,9 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
 
-// FIXME: 型付けが甘い
-export async function getStaticPaths() {
-  const allPosts = await Astro.glob('../posts/*.md');
+type Route = {
+  params: { tag: string };
+  props: any; // FIXME: any
+};
+
+// この関数で返した各 params ごとに Astro はビルド時に HTML ファイルを生成する
+// params プロパティをもつ各オブジェクトが対応するルートを生成する
+export async function getStaticPaths(): Promise<Route[]> {
+  const allPosts = await Astro.glob('../posts/*.md'); // FIXME: 型付けが甘い
   const uniqueTags = [
     ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
   ];
@@ -19,20 +25,22 @@ export async function getStaticPaths() {
   });
 }
 
-const { tag } = Astro.params;
+const { tag } = Astro.params; // Astro の動的ルーティングのパラメータ
 const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
   <p>"{tag}" のタグが付いた記事</p>
+  <!-- FIXME: any -->
   <ul>
     {
       posts
         .sort(
-          (a, b) =>
-            new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate),
+          (a: any, b: any) =>
+            new Date(b.frontmatter.pubDate).getTime() -
+            new Date(a.frontmatter.pubDate).getTime(),
         )
-        .map((post) => (
+        .map((post: any) => (
           <BlogPost
             url={post.url}
             title={post.frontmatter.title}
