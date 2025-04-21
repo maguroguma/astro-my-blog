@@ -4,6 +4,10 @@ import Footer from '@/components/Footer.astro';
 import '../styles/global.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
+interface Props {
+  pageTitle: string;
+}
+
 const { pageTitle } = Astro.props;
 ---
 
