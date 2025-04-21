@@ -1,19 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import type { MarkdownBlogPost } from '@/scripts/types.ts';
 
-interface Props {
-  frontmatter: {
-    title: string;
-    pubDate: Date;
-    updatedAt?: Date;
-    description: string;
-    image?: {
-      url: string;
-      alt: string;
-    };
-    tags: string[];
-  };
-}
+type Props = MarkdownBlogPost;
 
 const { frontmatter } = Astro.props;
 ---
