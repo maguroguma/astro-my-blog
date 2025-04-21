@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: '@/layouts/MarkdownPostLayout.astro'
 title: 'いまさら SKK に入門してみた'
 pubDate: 2024-11-03
 description: 'vim から SKK に入門してみたら、思ったよりとっつきやすかった、という話。'

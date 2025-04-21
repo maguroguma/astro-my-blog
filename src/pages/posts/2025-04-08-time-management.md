@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: '@/layouts/MarkdownPostLayout.astro'
 title: 'ノルマ制を脱却し、タイムボックス制へ'
 pubDate: 2025-04-08
 description: >

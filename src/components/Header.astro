@@ -1,7 +1,7 @@
 ---
-import Navigation from './Navigation.astro';
-import Hamburger from './Hamburger.astro';
-import ThemeIcon from './ThemeIcon.astro';
+import Navigation from '@/components/Navigation.astro';
+import Hamburger from '@/components/Hamburger.astro';
+import ThemeIcon from '@/components/ThemeIcon.astro';
 ---
 
 <header class="page-header">
@@ -28,6 +28,7 @@ import ThemeIcon from './ThemeIcon.astro';
   </div>
 </header>
 
+<!-- ブラウザにそのまま搭載される -->
 <script is:inline>
   const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
