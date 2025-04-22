@@ -1,10 +1,14 @@
 ---
 import type { MarkdownLayoutProps } from 'astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Tag from '@/components/Tag.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
+import { aggregateTags } from '@/scripts/tag';
 
 type Props = MarkdownLayoutProps<MarkdownBlogPost>;
 const { frontmatter } = Astro.props;
+
+const tags = aggregateTags([frontmatter.tags]);
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -21,13 +25,7 @@ const { frontmatter } = Astro.props;
   }
 
   <div class="tags">
-    {
-      frontmatter.tags.map((tag: string) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
+    {tags.map((tag) => <Tag tag={tag.tag} />)}
   </div>
 
   <slot />
@@ -40,21 +38,8 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
-  a {
-    color: #00539f;
-  }
-
   .tags {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
   }
 </style>
