@@ -19,17 +19,33 @@ const pageTitle = 'タグインデックス';
   <div class="tags">
     {
       tags.map((tag) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
+        <a class="tag-link" href={`/tags/${tag}`}>
+          <p class="tag">
+            <i class="fa fa-tags" />
+            <span class="tag-text">{tag}</span>
+          </p>
+        </a>
       ))
     }
   </div>
 </BaseLayout>
 
 <style>
-  a {
-    color: #00539f;
+  i {
+    margin-right: 0.2rem;
+  }
+
+  .tag-link,
+  .tag-link:visited {
+    text-decoration: none;
+    color: inherit;
+
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
   }
 
   .tags {
@@ -38,11 +54,11 @@ const pageTitle = 'タグインデックス';
   }
 
   .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
+    padding: 0 0;
+    margin: 0 0;
+  }
+
+  .tag-text {
+    color: #00539f;
   }
 </style>
