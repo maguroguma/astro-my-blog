@@ -1,19 +1,17 @@
 ---
 interface Props {
-  tag: {
-    tag: string;
-    count: number;
-  };
+  tag: string;
+  count?: number;
 }
 
-const { tag } = Astro.props;
+const { tag, count } = Astro.props;
 ---
 
-<a class="tag-link" href={`/tags/${tag.tag}`}>
+<a class="tag-link" href={`/tags/${tag}`}>
   <p class="tag">
     <i class="fa fa-tags"></i>
-    <span class="tag-text">{tag.tag}</span>
-    <span class="tag-count">{tag.count}</span>
+    <span class="tag-text">{tag}</span>
+    {count && <span class="tag-count">{count}</span>}
   </p>
 </a>
 

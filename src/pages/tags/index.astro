@@ -21,7 +21,7 @@ const pageTitle = 'タグインデックス';
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="tags">
-    {tags.map((tag) => <Tag tag={tag} />)}
+    {tags.map((tag) => <Tag tag={tag.tag} count={tag.count} />)}
   </div>
 </BaseLayout>
 
