@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
+import { aggregateTags } from '@/scripts/tag';
 
 type Post = {
   url: string;
@@ -10,7 +11,9 @@ type Post = {
 const allPosts: Post[] = Object.values(
   import.meta.glob('@/pages/posts/*.md', { eager: true }),
 );
-const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+
+const tagsList = allPosts.map((post) => post.frontmatter.tags);
+const tags = aggregateTags(tagsList);
 
 const pageTitle = 'タグインデックス';
 ---
@@ -19,10 +22,11 @@ const pageTitle = 'タグインデックス';
   <div class="tags">
     {
       tags.map((tag) => (
-        <a class="tag-link" href={`/tags/${tag}`}>
+        <a class="tag-link" href={`/tags/${tag.tag}`}>
           <p class="tag">
             <i class="fa fa-tags" />
-            <span class="tag-text">{tag}</span>
+            <span class="tag-text">{tag.tag}</span>
+            <span class="tag-count">{tag.count}</span>
           </p>
         </a>
       ))
@@ -31,10 +35,6 @@ const pageTitle = 'タグインデックス';
 </BaseLayout>
 
 <style>
-  i {
-    margin-right: 0.2rem;
-  }
-
   .tag-link,
   .tag-link:visited {
     text-decoration: none;
@@ -67,9 +67,25 @@ const pageTitle = 'タグインデックス';
   .tag {
     padding: 0 0;
     margin: 0 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .tag-text {
     color: #00539f;
+  }
+  .tag-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    background-color: #eeeeee;
+    border-radius: 9999px;
+    font-size: 0.75rem;
   }
 </style>
