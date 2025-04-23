@@ -1,13 +1,14 @@
 ---
-const { url, title, pubDate } = Astro.props;
+import type { MarkdownBlogPost } from '@/scripts/types.ts';
+
+const { url, post } = Astro.props;
 
 interface Props {
   url: string;
-  title: string;
-  pubDate: string;
+  post: MarkdownBlogPost;
 }
 
-const date = new Date(pubDate);
+const date = new Date(post.pubDate);
 const options: Intl.DateTimeFormatOptions = {
   year: 'numeric',
   month: 'long',
@@ -18,4 +19,96 @@ const formattedDate = date
   .replace(/\//g, '/'); // 日本の形式で日付をフォーマット
 ---
 
-<li><a href={url}>{formattedDate}: {title}</a></li>
+<article class="post-card">
+  <a class="post-link" href={url}>
+    <div class="tags-container">
+      {post.tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+    <h3 class="post-title">{post.title}</h3>
+    <p class="excerpt">{post.description}</p>
+    <div class="post-meta">
+      <span class="post-date">
+        <i class="far fa-calendar meta-icon"></i>
+        {formattedDate}
+      </span>
+      <!-- FIXME: 算出方法を考える -->
+      <!-- <span class="post-read-time"> -->
+      <!--   <i class="far fa-clock meta-icon"></i> -->
+      <!--   {100}分 -->
+      <!-- </span> -->
+    </div>
+  </a>
+</article>
+
+<style>
+  .post-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5em;
+    padding: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .post-card:hover {
+    border-color: #00539f;
+  }
+
+  .post-link,
+  .post-link:visited {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .tags-container {
+    display: flex;
+    flexwrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    background-color: #e2e8f0;
+    color: #00539f;
+    border-radius: 0.5rem;
+  }
+
+  .post-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    transition: color 0.2s;
+  }
+
+  .post-card:hover .post-title {
+    color: #00539f;
+  }
+
+  .post-excerpt {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: #4a5568;
+  }
+
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .post-read-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+</style>

@@ -40,7 +40,7 @@ const { posts } = Astro.props;
 
 <BaseLayout pageTitle={tag}>
   <p>"{tag}" のタグが付いた記事</p>
-  <ul>
+  <div class="posts-grid">
     {
       posts
         .sort(
@@ -48,13 +48,17 @@ const { posts } = Astro.props;
             new Date(b.frontmatter.pubDate).getTime() -
             new Date(a.frontmatter.pubDate).getTime(),
         )
-        .map((post) => (
-          <BlogPost
-            url={post.url}
-            title={post.frontmatter.title}
-            pubDate={post.frontmatter.pubDate.toString()}
-          />
-        ))
+        .map((post) => <BlogPost url={post.url} post={post.frontmatter} />)
     }
-  </ul>
+  </div>
 </BaseLayout>
+
+<style>
+  .posts-grid {
+    display: grid;
+    /* グリッドの列を自動生成する */
+    /* 高さは各行ごとに最大値が算出され、行の全アイテムに適用される */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+</style>
