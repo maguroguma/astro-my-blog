@@ -1,13 +1,14 @@
 ---
-const { url, title, pubDate } = Astro.props;
+import type { MarkdownBlogPost } from '@/scripts/types.ts';
+
+const { url, post } = Astro.props;
 
 interface Props {
   url: string;
-  title: string;
-  pubDate: string;
+  post: MarkdownBlogPost;
 }
 
-const date = new Date(pubDate);
+const date = new Date(post.pubDate);
 const options: Intl.DateTimeFormatOptions = {
   year: 'numeric',
   month: 'long',
@@ -18,4 +19,4 @@ const formattedDate = date
   .replace(/\//g, '/'); // 日本の形式で日付をフォーマット
 ---
 
-<li><a href={url}>{formattedDate}: {title}</a></li>
+<li><a href={url}>{formattedDate}: {post.title}</a></li>

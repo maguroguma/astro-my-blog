@@ -25,13 +25,7 @@ const pageTitle = '記事一覧';
             new Date(b.frontmatter.pubDate).getTime() -
             new Date(a.frontmatter.pubDate).getTime(),
         )
-        .map((post) => (
-          <BlogPost
-            url={post.url}
-            title={post.frontmatter.title}
-            pubDate={post.frontmatter.pubDate.toString()}
-          />
-        ))
+        .map((post) => <BlogPost url={post.url} post={post.frontmatter} />)
     }
   </ul>
 </BaseLayout>
