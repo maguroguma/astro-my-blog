@@ -17,7 +17,7 @@ const pageTitle = '記事一覧';
 <BaseLayout pageTitle={pageTitle}>
   <p>色々と垂れ流します。</p>
 
-  <ul>
+  <div class="posts-grid">
     {
       allPosts
         .sort(
@@ -27,5 +27,15 @@ const pageTitle = '記事一覧';
         )
         .map((post) => <BlogPost url={post.url} post={post.frontmatter} />)
     }
-  </ul>
+  </div>
 </BaseLayout>
+
+<style>
+  .posts-grid {
+    display: grid;
+    /* グリッドの列を自動生成する */
+    /* 高さは各行ごとに最大値が算出され、行の全アイテムに適用される */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+</style>
