@@ -39,7 +39,7 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <p>"{tag}" のタグが付いた記事</p>
+  <h2>{posts.length} 件のブログ記事が見つかりました</h2>
   <div class="posts-grid">
     {
       posts
