@@ -1,9 +1,61 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogPost from '@/components/BlogPost.astro';
+import Tag from '@/components/Tag.astro';
+import type { MarkdownBlogPost } from '@/scripts/types.ts';
+import { aggregateTags } from '@/scripts/tag';
+
+type Post = {
+  url: string;
+  frontmatter: MarkdownBlogPost;
+};
+
+const allPosts: Post[] = Object.values(
+  import.meta.glob('@/pages/posts/*.md', { eager: true }),
+);
+const recentPosts = allPosts
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).getTime() -
+      new Date(a.frontmatter.pubDate).getTime(),
+  )
+  .slice(0, 4);
+
+const tagsList = recentPosts.map((post) => post.frontmatter.tags);
+const tags = aggregateTags(tagsList);
 
 const pageTitle = 'Leverage Copy';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>maguroguma の思考の記録</h2>
+  <p>maguroguma の思考の記録</p>
+
+  <h2>最新の投稿</h2>
+  <div class="posts-grid">
+    {
+      recentPosts.map((post) => (
+        <BlogPost url={post.url} post={post.frontmatter} />
+      ))
+    }
+  </div>
+
+  <h2>タグから探す</h2>
+  <div class="tags">
+    {tags.map((tag) => <Tag tag={tag.tag} count={tag.count} />)}
+  </div>
 </BaseLayout>
+
+<style>
+  .posts-grid {
+    display: grid;
+    /* グリッドの列を自動生成する */
+    /* 高さは各行ごとに最大値が算出され、行の全アイテムに適用される */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>
