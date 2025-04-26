@@ -16,10 +16,11 @@ const allPosts: Post[] = Object.values(
 const tagsList = allPosts.map((post) => post.frontmatter.tags);
 const tags = aggregateTags(tagsList);
 
-const pageTitle = 'タグインデックス';
+const pageTitle = 'タグ一覧';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <h2>トピック別にブログ記事を探す</h2>
   <div class="tags">
     {tags.map((tag) => <Tag tag={tag.tag} count={tag.count} />)}
   </div>

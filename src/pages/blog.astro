@@ -11,12 +11,10 @@ type Post = {
 const allPosts: Post[] = Object.values(
   import.meta.glob('@/pages/posts/*.md', { eager: true }),
 );
-const pageTitle = '記事一覧';
+const pageTitle = 'ブログ記事一覧';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>色々と垂れ流します。</p>
-
   <div class="posts-grid">
     {
       allPosts
