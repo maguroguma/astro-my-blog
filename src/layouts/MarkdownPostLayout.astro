@@ -12,7 +12,19 @@ const tags = aggregateTags([frontmatter.tags]);
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>投稿日: {frontmatter.pubDate.toString().slice(0, 10)}</p>
+  <p>
+    <span class="publish-date"
+      >投稿日: {frontmatter.pubDate.toString().slice(0, 10)}</span
+    >
+    {
+      frontmatter.updatedAt && (
+        <span class="update-date">
+          <i class="fas fa-sync" />
+          {frontmatter.updatedAt.toString().slice(0, 10)}
+        </span>
+      )
+    }
+  </p>
   <p><em>{frontmatter.description}</em></p>
   {
     frontmatter.image && (
@@ -29,17 +41,15 @@ const tags = aggregateTags([frontmatter.tags]);
   </div>
 
   <slot />
-
-  {
-    frontmatter.updatedAt && (
-      <p>※{frontmatter.updatedAt.toString().slice(0, 10)} に更新しました。</p>
-    )
-  }
 </BaseLayout>
 
 <style>
   .tags {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .publish-date {
+    margin-right: 1rem;
   }
 </style>
