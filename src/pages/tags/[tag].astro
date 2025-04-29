@@ -17,7 +17,7 @@ type Route = {
 // params プロパティをもつ各オブジェクトが対応するルートを生成する
 export async function getStaticPaths(): Promise<Route[]> {
   const allPosts: Post[] = Object.values(
-    import.meta.glob('@/pages/posts/*.md', { eager: true }),
+    import.meta.glob('@/pages/posts/**/*.md', { eager: true }),
   );
 
   const uniqueTags = [

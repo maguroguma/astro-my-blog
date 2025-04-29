@@ -2,7 +2,7 @@
 layout: '@/layouts/MarkdownPostLayout.astro'
 title: '私が Vim, Neovim から離れられない理由'
 pubDate: 2025-04-28
-description: 'Neovim を好む理由を整理しておくことで、生成 AI 時代以降のエディタ環境の趨勢に対応していきたい'
+description: 'Neovim を好む理由を整理しておくことで、生成 AI 時代以降のエディタ環境の趨勢に対応していきたい。'
 tags: ["Neovim", "Vim"]
 ---
 ここ最近は、生成 AI を用いたツールへ対応しようと、色々調べたり使ってみたりしている。
@@ -58,7 +58,7 @@ https://github.com/yuki-yano/fuzzy-motion.vim
 https://github.com/lambdalisue/vim-kensaku
 
 以下のような感じで、ローマ字入力で日本語も含めてカーソルのジャンプ先を決定できる。
-![fuzzy motion + kensaku によるカーソル移動](@/pages/assets/2025-04-28-fuzzy-motion-and-kensaku-loop.gif)
+![fuzzy motion + kensaku によるカーソル移動](./2025-04-28-fuzzy-motion-and-kensaku-loop.gif)
 
 ### Terminal からすぐ起動出来る
 
