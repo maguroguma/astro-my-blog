@@ -4,9 +4,6 @@ title: 'ノルマ制を脱却し、タイムボックス制へ'
 pubDate: 2025-04-08
 description: >
     何かに取り組むときは、タイムボックスを意識して、投じた時間の価値を最大化することを意識したい。
-image:
-    url: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjw046yBKCqiXz1KC1UO3KkoU7f_pBsgj9PD_mesbIWmpi9muU3o5VxUrrmcL56yDCNJB-bRketnLpe6Ud5mvX8fX5XaMGEl0za1szVZiWpq4oBSlxGawX-pMLl2seHQc1ptjExIaiHPam9/s400/yugamu_jikan.png'
-    alt: 'いらすとや - 歪む時間のイラスト'
 tags: ["self management"]
 ---
 いい加減「何かにとりかかるときはタイムボックスを意識して取り組め！」というのを戒めるために、この文章を書く。

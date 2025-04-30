@@ -4,9 +4,6 @@ title: '何かを学ぶときに尻ごむ必要はない'
 pubDate: 2025-04-02
 description: '「これやって本当に意味あるんだろうか？」みたいな気持ちになることがしばしばあるので、
 ここに書いたことを思い出してはねのけたい。'
-image:
-    url: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicVbt5X1UYAxlzqqmoVZY1tqFY9kfogqsyGOPhKjv6ttFNfEvEdnXq-JG_O8PMmOo0xyOF99Hgvs7DSzEyKCXlvFP9uytDEZ5gHce5mp78PtCP2lOu4i-ci6ClNvT3RUfzpnB3hnKZp4Ot/s800/nayamu_boy2.png'
-    alt: 'いらすとや - 悩む男の子のイラスト'
 tags: ["self management"]
 updatedAt: 2025-04-08
 ---

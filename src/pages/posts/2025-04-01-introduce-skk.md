@@ -3,9 +3,6 @@ layout: '@/layouts/MarkdownPostLayout.astro'
 title: 'いまさら SKK に入門してみた'
 pubDate: 2024-11-03
 description: 'Vim から SKK に入門してみたら、思ったよりとっつきやすかった、という話。'
-image:
-    url: 'https://www.vim.org/images/vimlogo.svg'
-    alt: 'Vim のロゴ。'
 tags: ["Vim", "SKK"]
 ---
 プライベートのアウトプットが絶望的に無さすぎるので、最近 SKK に入門してみた感想でも書いてみる。

@@ -10,7 +10,7 @@ type Post = {
 };
 
 const allPosts: Post[] = Object.values(
-  import.meta.glob('@/pages/posts/*.md', { eager: true }),
+  import.meta.glob('@/pages/posts/**/*.md', { eager: true }),
 );
 
 const tagsList = allPosts.map((post) => post.frontmatter.tags);
