@@ -22,6 +22,14 @@ export default function Board() {
   );
 }
 
-const Square = ({ value }: { value: string }) => (
-  <button className="square">{value}</button>
-);
+const Square = ({ value }: { value: string }) => {
+  const handleClick = () => {
+    console.log('clicked!');
+  };
+
+  return (
+    <button className="square" onClick={handleClick}>
+      {value}
+    </button>
+  );
+};
