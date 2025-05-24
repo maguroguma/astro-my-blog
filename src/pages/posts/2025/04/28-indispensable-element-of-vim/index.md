@@ -58,7 +58,7 @@ https://github.com/yuki-yano/fuzzy-motion.vim
 https://github.com/lambdalisue/vim-kensaku
 
 以下のような感じで、ローマ字入力で日本語も含めてカーソルのジャンプ先を決定できる。
-![fuzzy motion + kensaku によるカーソル移動](./2025-04-28-fuzzy-motion-and-kensaku-loop.gif)
+![fuzzy motion + kensaku によるカーソル移動](./fuzzy-motion-and-kensaku-loop.gif)
 
 ### Terminal からすぐ起動出来る
 

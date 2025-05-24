@@ -29,6 +29,6 @@ tags: ["tmux", "CLI"]
 …正直に言うと、単に perplexity に質問しただけで、一瞬でこの返答が返ってきました。
 tmux 使いはじめて5年くらい経過してからようやく知ったので、悔しさから勢いでこの記事を書きました。
 
-![ありがとう perplexity](./2025-05-10-tmux-perplexity.png)
+![ありがとう perplexity](./tmux-perplexity.png)
 
 以上です。
