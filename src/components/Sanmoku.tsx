@@ -2,22 +2,25 @@ import { useState } from 'preact/hooks';
 import '@/styles/game.css';
 
 export default () => {
-  const [xIsNext, setXIsNext] = useState(true);
   const [history, setHistory] = useState<(string | null)[][]>([
     Array(9).fill(null),
   ]);
-  const currentSquares = history[history.length - 1];
+  const [currentMove, setCurrentMove] = useState(0);
+
+  const currentSquares = history[currentMove];
+  const xIsNext = currentMove % 2 === 0;
 
   const handlePlay = (nextSquares: (string | null)[]) => {
-    setHistory([...history, nextSquares]);
-    setXIsNext(!xIsNext);
+    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+    setHistory(nextHistory);
+    setCurrentMove(nextHistory.length - 1);
   };
 
   const jumpTo = (nextMove: number) => {
-    // TODO
+    setCurrentMove(nextMove);
   };
 
-  const moves = history.map((squares: (string | null)[], move: number) => {
+  const moves = history.map((_, move) => {
     const description = move > 0 ? `Go to move #${move}` : `Go to game start`;
     return (
       <li>
