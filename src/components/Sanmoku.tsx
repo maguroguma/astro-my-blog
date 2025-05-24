@@ -2,13 +2,24 @@ import { useState } from 'preact/hooks';
 import '@/styles/game.css';
 
 export default function Board() {
+  const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState<(string | null)[]>(
     Array(9).fill(null),
   );
 
   const handleClick = (i: number) => {
+    if (squares[i]) {
+      return;
+    }
+
     const nextSquares = squares.slice();
-    nextSquares[i] = 'X';
+    if (xIsNext) {
+      nextSquares[i] = 'X';
+    } else {
+      nextSquares[i] = 'O';
+    }
+
+    setXIsNext(!xIsNext);
     setSquares(nextSquares);
   };
 
