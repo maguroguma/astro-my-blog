@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Greeting from '@/components/Greeting';
+import Square from '@/components/Sanmoku';
+
+const pageTitle = 'Game';
+
+const astroMessages = ['どうも', 'こんにちは', '初めまして', 'ようこそ'];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <Greeting client:load messages={astroMessages} />
+  <Square client:load />
+</BaseLayout>

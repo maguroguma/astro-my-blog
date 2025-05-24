@@ -10,4 +10,11 @@ export default defineConfig({
   devToolbar: {
     enabled: true,
   },
+  vite: {
+    css: {
+      modules: {
+        localsConvention: 'camelCase',
+      },
+    },
+  },
 });
