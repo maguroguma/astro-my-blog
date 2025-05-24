@@ -1,12 +1,39 @@
 import { useState } from 'preact/hooks';
 import '@/styles/game.css';
 
-export default function Board() {
+export default () => {
   const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState<(string | null)[]>(
+  const [history, setHistory] = useState<(string | null)[][]>([
     Array(9).fill(null),
-  );
+  ]);
+  const currentSquares = history[history.length - 1];
 
+  const handlePlay = (nextSquares: (string | null)[]) => {
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
+  };
+
+  return (
+    <div className="game">
+      <div className="game-board">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+      <div className="game-info">
+        <ol></ol>
+      </div>
+    </div>
+  );
+};
+
+const Board = ({
+  xIsNext,
+  squares,
+  onPlay,
+}: {
+  xIsNext: boolean;
+  squares: (string | null)[];
+  onPlay: (f: (string | null)[]) => void;
+}) => {
   const handleClick = (i: number) => {
     if (squares[i] || calculateWinner(squares)) {
       return;
@@ -19,8 +46,7 @@ export default function Board() {
       nextSquares[i] = 'O';
     }
 
-    setXIsNext(!xIsNext);
-    setSquares(nextSquares);
+    onPlay(nextSquares);
   };
 
   // state の変化のたびに再計算・再レンダリングされる
@@ -51,7 +77,7 @@ export default function Board() {
       </div>
     </>
   );
-}
+};
 
 const Square = ({
   value,
