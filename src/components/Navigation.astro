@@ -14,8 +14,9 @@
     width: 100%;
     top: 5rem;
     left: 48px;
-    background-color: #ff9776;
-    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
     margin: 0;
   }
 
@@ -27,17 +28,8 @@
     color: inherit;
   }
 
-  .nav-links a:hover,
-  .nav-links a:focus {
-    background-color: #ff9776;
-  }
-
   .expanded {
-    display: unset;
-  }
-
-  .dark .nav-links a {
-    color: #fff;
+    max-height: 150px; /* 必要に応じて適切な高さに調整 */
   }
 
   @media screen and (min-width: 636px) {
@@ -48,6 +40,8 @@
       position: static;
       width: auto;
       background: none;
+      max-height: none; /* デスクトップ時は高さ制限を解除 */
+      overflow: visible; /* デスクトップ時はオーバーフローを解除 */
     }
   }
 </style>
