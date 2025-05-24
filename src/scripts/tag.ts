@@ -27,6 +27,13 @@ const aggregateTags = (tagsList: string[][]): Tag[] => {
   return tags;
 };
 
+/**
+ * Filters global tags to include only those that are present in the recent tags.
+ *
+ * @param recentTags - An array of Tag objects representing recently used tags.
+ * @param globalTags - An array of Tag objects representing all available tags.
+ * @returns An array of Tag objects that are present in both recentTags and globalTags.
+ */
 const topTags = (recentTags: Tag[], globalTags: Tag[]): Tag[] => {
   const recentTagsSet = new Set(recentTags.map((tag) => tag.tag));
   const filteredGlobalTags = globalTags.filter((tag) =>
