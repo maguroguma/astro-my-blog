@@ -23,13 +23,13 @@ export default function Board() {
     setSquares(nextSquares);
   };
 
-  const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = 'Winner: ' + winner;
-  } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
-  }
+  // state の変化のたびに再計算・再レンダリングされる
+  const status = (() => {
+    const winner = calculateWinner(squares);
+    return winner
+      ? 'Winner: ' + winner
+      : 'Next player: ' + (xIsNext ? 'X' : 'O');
+  })();
 
   return (
     <>
