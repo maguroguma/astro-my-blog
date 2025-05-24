@@ -3,12 +3,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import BlogPost from '@/components/BlogPost.astro';
 import Tag from '@/components/Tag.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
-import { aggregateTags } from '@/scripts/tag';
+import { aggregateTags, topTags } from '@/scripts/tag';
 
 type Post = {
   url: string;
   frontmatter: MarkdownBlogPost;
 };
+
+const TOP_POSTS_NUM = 4;
 
 const allPosts: Post[] = Object.values(
   import.meta.glob('@/pages/posts/**/*.md', { eager: true }),
@@ -19,10 +21,15 @@ const recentPosts = allPosts
       new Date(b.frontmatter.pubDate).getTime() -
       new Date(a.frontmatter.pubDate).getTime(),
   )
-  .slice(0, 4);
+  .slice(0, TOP_POSTS_NUM);
 
-const tagsList = recentPosts.map((post) => post.frontmatter.tags);
-const tags = aggregateTags(tagsList);
+const recentTagsList = recentPosts.map((post) => post.frontmatter.tags);
+const recentTags = aggregateTags(recentTagsList);
+
+const globalTagsList = allPosts.map((post) => post.frontmatter.tags);
+const globalTags = aggregateTags(globalTagsList);
+
+const tags = topTags(recentTags, globalTags);
 
 const pageTitle = 'Leverage Copy';
 ---

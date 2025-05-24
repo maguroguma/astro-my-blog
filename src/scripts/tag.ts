@@ -3,6 +3,8 @@ type Tag = {
   count: number;
 };
 
+// FIXME: テストを書く！
+
 /** * Aggregates tags from an array of arrays of strings.
  * * @param tagsList - An array of arrays of strings representing tags.
  * * @returns An array of objects, each containing a tag and its count.
@@ -25,4 +27,13 @@ const aggregateTags = (tagsList: string[][]): Tag[] => {
   return tags;
 };
 
-export { aggregateTags };
+const topTags = (recentTags: Tag[], globalTags: Tag[]): Tag[] => {
+  const recentTagsSet = new Set(recentTags.map((tag) => tag.tag));
+  const filteredGlobalTags = globalTags.filter((tag) =>
+    recentTagsSet.has(tag.tag),
+  );
+
+  return filteredGlobalTags;
+};
+
+export { aggregateTags, topTags };
