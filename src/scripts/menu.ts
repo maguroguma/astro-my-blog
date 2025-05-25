@@ -1,6 +1,7 @@
 document.querySelector('.hamburger')?.addEventListener('click', () => {
   const navLinks = document.querySelector('.mobile-nav .nav-links');
   const hamburgerIcon = document.getElementById('hamburgerIcon');
+  if (!navLinks || !hamburgerIcon) return;
 
   // メニューの展開状態を切り替え
   navLinks?.classList.toggle('expanded');
