@@ -21,9 +21,11 @@
     "@astrojs/preact": "^4.0.7",
     "@astrojs/rss": "^4.0.11",
     "@fortawesome/fontawesome-free": "^6.7.2",
+    "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.5.5",
     "normalize.css": "^8.0.1",
     "preact": "^10.26.4",
+    "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
