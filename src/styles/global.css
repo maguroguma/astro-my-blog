@@ -1,6 +1,11 @@
 @charset "UTF-8";
 @import 'normalize.css';
 
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+/* @import 'tailwindcss/preflight.css' layer(base); */
+@import 'tailwindcss/utilities.css' layer(utilities);
+
 /* すべての要素のボックスモデルをボーダーボックスに変更する */
 html *,
 ::before,
@@ -42,92 +47,4 @@ img {
 html.dark {
   background-color: #0d0950;
   color: #fff;
-}
-
-@import 'tailwindcss';
-
-/* Preflightで失われた見出しサイズと余白を復活 */
-
-/* 見出しのフォントサイズを復活 */
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0.67em 0;
-}
-
-h2 {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 0.75em 0;
-}
-
-h3 {
-  font-size: 1.17em;
-  font-weight: bold;
-  margin: 0.83em 0;
-}
-
-h4 {
-  font-size: 1em;
-  font-weight: bold;
-  margin: 1.12em 0;
-}
-
-h5 {
-  font-size: 0.83em;
-  font-weight: bold;
-  margin: 1.5em 0;
-}
-
-h6 {
-  font-size: 0.75em;
-  font-weight: bold;
-  margin: 1.67em 0;
-}
-
-/* 段落の余白を復活 */
-p {
-  margin: 1em 0;
-}
-
-/* リストの余白とスタイルを復活 */
-ul,
-ol {
-  margin: 1em 0;
-  padding-left: 40px;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-li {
-  margin: 0.5em 0;
-}
-
-/* その他のよく使われる要素の余白 */
-blockquote {
-  margin: 1em 40px;
-}
-
-pre {
-  margin: 1em 0;
-}
-
-hr {
-  margin: 1em 0;
-}
-
-/* フォーム要素の余白 */
-form {
-  margin: 1em 0;
-}
-
-fieldset {
-  margin: 1em 2px;
-  padding: 0.35em 0.625em 0.75em;
 }
