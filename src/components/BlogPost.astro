@@ -19,97 +19,36 @@ const formattedDate = date
   .replace(/\//g, '/'); // 日本の形式で日付をフォーマット
 ---
 
-<article class="post-card">
-  <a class="post-link" href={url}>
-    <div class="tags-container">
-      {post.tags.map((tag) => <span class="tag">{tag}</span>)}
+<article
+  class="border border-gray-200 rounded-lg p-4 transition-colors duration-200 hover:border-blue-700 group"
+>
+  <a class="block text-inherit no-underline" href={url}>
+    <div class="flex flex-wrap gap-2">
+      {
+        post.tags.map((tag) => (
+          <span class="inline-block px-2 py-1 text-sm bg-gray-200 text-blue-700 rounded-lg">
+            {tag}
+          </span>
+        ))
+      }
     </div>
-    <h3 class="post-title">{post.title}</h3>
-    <p class="excerpt">{post.description}</p>
+    <h3
+      class="text-xl font-bold my-2 transition-colors duration-200 group-hover:text-blue-900"
+    >
+      {post.title}
+    </h3>
+    <p>{post.description}</p>
     <!-- FIXME: メタ情報はカードの最下部に常に配置したい -->
-    <div class="post-meta">
-      <span class="post-date">
-        <i class="far fa-calendar meta-icon"></i>
+    <div class="flex items-center gap-4 text-sm text-gray-600">
+      <span class="flex items-center gap-1">
+        <i class="far fa-calendar"></i>
         {formattedDate}
       </span>
       <!-- FIXME: 算出方法を考える -->
-      <!-- <span class="post-read-time"> -->
-      <!--   <i class="far fa-clock meta-icon"></i> -->
+      <!-- <span class="flex items-center gap-1"> -->
+      <!--   <i class="far fa-clock"></i> -->
       <!--   {100}分 -->
       <!-- </span> -->
     </div>
   </a>
 </article>
-
-<style>
-  .post-card {
-    border: 1px solid #e2e8f0;
-    border-radius: 0.5em;
-    padding: 1rem;
-    transition: border-color 0.2s;
-  }
-
-  .post-card:hover {
-    border-color: #00539f;
-  }
-
-  .post-link,
-  .post-link:visited {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .tags-container {
-    display: flex;
-    flexwrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-    background-color: #e2e8f0;
-    color: #00539f;
-    border-radius: 0.5rem;
-  }
-
-  .post-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0.5rem 0;
-    transition: color 0.2s;
-  }
-
-  .post-card:hover .post-title {
-    color: #00539f;
-  }
-
-  .post-excerpt {
-    font-size: 1rem;
-    color: #4a5568;
-    margin-bottom: 0.5rem;
-  }
-
-  .post-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.875rem;
-    color: #4a5568;
-  }
-
-  .post-date {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .post-read-time {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-</style>
