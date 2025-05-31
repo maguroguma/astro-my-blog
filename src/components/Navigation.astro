@@ -2,46 +2,21 @@
 
 ---
 
-<div class="nav-links">
-  <a href="/">ホーム</a>
-  <!-- <a href="/about/">概要</a> -->
-  <a href="/blog/">ブログ</a>
-  <a href="/tags/">タグ</a>
+<!-- NOTE: .nav-links は JS selector のために必須 -->
+<div
+  class="nav-links flex max-h-0 flex-col gap-0 overflow-hidden transition-[max-height] duration-300 ease-in-out sm:static sm:max-h-none sm:w-auto sm:flex-row sm:gap-4 sm:overflow-visible sm:bg-transparent"
+>
+  <a href="/" class="block p-1 text-inherit uppercase no-underline">ホーム</a>
+  <!-- <a href="/about/" class="block px-1 py-1 uppercase no-underline text-inherit">概要</a> -->
+  <a href="/blog/" class="block p-1 text-inherit uppercase no-underline"
+    >ブログ</a
+  >
+  <a href="/tags/" class="block p-1 text-inherit uppercase no-underline">タグ</a
+  >
 </div>
 
 <style>
-  .nav-links {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease;
-    margin: 0;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 5px 5px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: inherit;
-  }
-
-  .expanded {
-    max-height: 100px; /* 必要に応じて適切な高さに調整 */
-  }
-
-  @media screen and (min-width: 636px) {
-    .nav-links {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      position: static;
-      width: auto;
-      background: none;
-      max-height: none; /* デスクトップ時は高さ制限を解除 */
-      overflow: visible; /* デスクトップ時はオーバーフローを解除 */
-    }
+  .nav-links.expanded {
+    max-height: 100px;
   }
 </style>

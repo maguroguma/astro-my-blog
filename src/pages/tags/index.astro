@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Tag from '@/components/Tag.astro';
+import TagsGroup from '@/components/TagsGroup.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 import { aggregateTags } from '@/scripts/tag';
 
@@ -21,14 +21,6 @@ const pageTitle = 'タグ一覧';
 
 <BaseLayout pageTitle={pageTitle}>
   <h2>トピック別にブログ記事を探す</h2>
-  <div class="tags">
-    {tags.map((tag) => <Tag tag={tag.tag} count={tag.count} />)}
-  </div>
-</BaseLayout>
 
-<style>
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-</style>
+  <TagsGroup tags={tags} />
+</BaseLayout>

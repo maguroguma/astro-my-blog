@@ -1,7 +1,7 @@
 ---
 import type { MarkdownLayoutProps } from 'astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Tag from '@/components/Tag.astro';
+import TagsGroup from '@/components/TagsGroup.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 import { aggregateTags } from '@/scripts/tag';
 
@@ -12,44 +12,31 @@ const tags = aggregateTags([frontmatter.tags]);
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>
-    <span class="publish-date"
+  <p class="mb-4 text-gray-600">
+    <span class="mr-4"
       >投稿日: {frontmatter.pubDate.toString().slice(0, 10)}</span
     >
     {
       frontmatter.updatedAt && (
-        <span class="update-date">
-          <i class="fas fa-sync" />
+        <span class="flex items-center text-gray-500">
+          <i class="fas fa-sync mr-2" />
           {frontmatter.updatedAt.toString().slice(0, 10)}
         </span>
       )
     }
   </p>
-  <p><em>{frontmatter.description}</em></p>
+  <p class="mb-4 text-gray-700 italic">{frontmatter.description}</p>
   {
     frontmatter.image && (
       <img
+        class="mb-4 h-auto w-72"
         src={frontmatter.image.url}
-        width="300"
         alt={frontmatter.image.alt}
       />
     )
   }
 
-  <div class="tags">
-    {tags.map((tag) => <Tag tag={tag.tag} />)}
-  </div>
+  <TagsGroup tags={tags} hideCount={true} />
 
   <slot />
 </BaseLayout>
-
-<style>
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .publish-date {
-    margin-right: 1rem;
-  }
-</style>

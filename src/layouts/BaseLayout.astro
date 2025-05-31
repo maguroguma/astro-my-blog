@@ -21,9 +21,9 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <div class="layout">
+    <div class="flex min-h-screen flex-col">
       <Header />
-      <main class="page-main">
+      <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
         <h1>{pageTitle}</h1>
         <slot />
       </main>
@@ -35,20 +35,3 @@ const { pageTitle } = Astro.props;
     </div>
   </body>
 </html>
-
-<style>
-  .layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  .page-main {
-    flex: 1;
-
-    width: 100%;
-    max-width: 80ch; /* padding, border までを含めた最大幅 */
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-</style>

@@ -9,3 +9,8 @@ export type MarkdownBlogPost = {
   };
   tags: string[];
 };
+
+export type Tag = {
+  tag: string;
+  count: number;
+};

@@ -1,7 +1,4 @@
-type Tag = {
-  tag: string;
-  count: number;
-};
+import type { Tag } from '@/scripts/types';
 
 // FIXME: テストを書く！
 

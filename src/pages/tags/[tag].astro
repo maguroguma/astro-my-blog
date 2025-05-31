@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import BlogPost from '@/components/BlogPost.astro';
+import PostsGrid from '@/components/PostsGrid.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 
 type Post = {
@@ -39,26 +39,9 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <h2>{posts.length} 件のブログ記事が見つかりました</h2>
-  <div class="posts-grid">
-    {
-      posts
-        .sort(
-          (a, b) =>
-            new Date(b.frontmatter.pubDate).getTime() -
-            new Date(a.frontmatter.pubDate).getTime(),
-        )
-        .map((post) => <BlogPost url={post.url} post={post.frontmatter} />)
-    }
-  </div>
-</BaseLayout>
+  <h2>
+    {posts.length} 件のブログ記事が見つかりました
+  </h2>
 
-<style>
-  .posts-grid {
-    display: grid;
-    /* グリッドの列を自動生成する */
-    /* 高さは各行ごとに最大値が算出され、行の全アイテムに適用される */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-</style>
+  <PostsGrid posts={posts} />
+</BaseLayout>

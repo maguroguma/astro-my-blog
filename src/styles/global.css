@@ -1,6 +1,11 @@
 @charset "UTF-8";
 @import 'normalize.css';
 
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+/* @import 'tailwindcss/preflight.css' layer(base); */
+@import 'tailwindcss/utilities.css' layer(utilities);
+
 /* すべての要素のボックスモデルをボーダーボックスに変更する */
 html *,
 ::before,
@@ -33,7 +38,7 @@ img {
 }
 
 /* PC やタブレットのルール */
-@media screen and (min-width: 636px) {
+@media screen and (min-width: 640px) {
   html {
     font-size: 16px;
   }

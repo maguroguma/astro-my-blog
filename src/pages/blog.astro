@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import BlogPost from '@/components/BlogPost.astro';
+import PostsGrid from '@/components/PostsGrid.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 
 type Post = {
@@ -15,25 +15,5 @@ const pageTitle = 'ブログ記事一覧';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="posts-grid">
-    {
-      allPosts
-        .sort(
-          (a, b) =>
-            new Date(b.frontmatter.pubDate).getTime() -
-            new Date(a.frontmatter.pubDate).getTime(),
-        )
-        .map((post) => <BlogPost url={post.url} post={post.frontmatter} />)
-    }
-  </div>
+  <PostsGrid posts={allPosts} />
 </BaseLayout>
-
-<style>
-  .posts-grid {
-    display: grid;
-    /* グリッドの列を自動生成する */
-    /* 高さは各行ごとに最大値が算出され、行の全アイテムに適用される */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-</style>

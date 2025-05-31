@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import BlogPost from '@/components/BlogPost.astro';
-import Tag from '@/components/Tag.astro';
+import PostsGrid from '@/components/PostsGrid.astro';
+import TagsGroup from '@/components/TagsGroup.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 import { aggregateTags, topTags } from '@/scripts/tag';
 
@@ -37,49 +37,15 @@ const pageTitle = 'Leverage Copy';
 <BaseLayout pageTitle={pageTitle}>
   <p>maguroguma の思考の記録</p>
 
-  <div class="posts-header">
+  <div class="flex flex-row items-baseline justify-between">
     <h2>最新の投稿</h2>
-    <a class="posts-link" href="/blog/"
-      >すべての投稿を見る <i class="fa fa-angle-double-right"></i></a
-    >
+    <a class="text-inherit no-underline" href="/blog/">
+      すべての投稿を見る <i class="fa fa-angle-double-right ml-1"></i>
+    </a>
   </div>
-  <div class="posts-grid">
-    {
-      recentPosts.map((post) => (
-        <BlogPost url={post.url} post={post.frontmatter} />
-      ))
-    }
-  </div>
+
+  <PostsGrid posts={recentPosts} />
 
   <h2>タグから探す</h2>
-  <div class="tags">
-    {tags.map((tag) => <Tag tag={tag.tag} count={tag.count} />)}
-  </div>
+  <TagsGroup tags={tags} />
 </BaseLayout>
-
-<style>
-  .posts-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  .posts-link {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .posts-grid {
-    display: grid;
-    /* グリッドの列を自動生成する */
-    /* 高さは各行ごとに最大値が算出され、行の全アイテムに適用される */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-</style>
