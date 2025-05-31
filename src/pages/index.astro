@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import BlogPost from '@/components/BlogPost.astro';
+import PostsGrid from '@/components/PostsGrid.astro';
 import Tag from '@/components/Tag.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 import { aggregateTags, topTags } from '@/scripts/tag';
@@ -43,14 +43,8 @@ const pageTitle = 'Leverage Copy';
       すべての投稿を見る <i class="fa fa-angle-double-right ml-1"></i>
     </a>
   </div>
-  <!-- FIXME: 共通コンポーネントにする -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    {
-      recentPosts.map((post) => (
-        <BlogPost url={post.url} post={post.frontmatter} />
-      ))
-    }
-  </div>
+
+  <PostsGrid posts={recentPosts} />
 
   <h2>タグから探す</h2>
   <div class="flex flex-wrap">

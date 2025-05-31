@@ -1,0 +1,25 @@
+---
+import BlogPost from '@/components/BlogPost.astro';
+import type { MarkdownBlogPost } from '@/scripts/types.ts';
+
+interface Props {
+  posts: {
+    url: string;
+    frontmatter: MarkdownBlogPost;
+  }[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {
+    posts
+      .sort(
+        (a, b) =>
+          new Date(b.frontmatter.pubDate).getTime() -
+          new Date(a.frontmatter.pubDate).getTime(),
+      )
+      .map((post) => <BlogPost url={post.url} post={post.frontmatter} />)
+  }
+</div>
