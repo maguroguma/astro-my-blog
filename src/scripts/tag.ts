@@ -1,4 +1,4 @@
-import { Tag } from '@/scripts/types';
+import type { Tag } from '@/scripts/types';
 
 // FIXME: テストを書く！
 
