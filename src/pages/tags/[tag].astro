@@ -39,8 +39,10 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <h2>{posts.length} 件のブログ記事が見つかりました</h2>
-  <div class="posts-grid">
+  <h2>
+    {posts.length} 件のブログ記事が見つかりました
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     {
       posts
         .sort(
@@ -52,13 +54,3 @@ const { posts } = Astro.props;
     }
   </div>
 </BaseLayout>
-
-<style>
-  .posts-grid {
-    display: grid;
-    /* グリッドの列を自動生成する */
-    /* 高さは各行ごとに最大値が算出され、行の全アイテムに適用される */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-</style>
