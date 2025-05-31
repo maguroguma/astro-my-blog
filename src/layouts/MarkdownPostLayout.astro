@@ -1,7 +1,7 @@
 ---
 import type { MarkdownLayoutProps } from 'astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Tag from '@/components/Tag.astro';
+import TagsGroup from '@/components/TagsGroup.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 import { aggregateTags } from '@/scripts/tag';
 
@@ -36,10 +36,7 @@ const tags = aggregateTags([frontmatter.tags]);
     )
   }
 
-  <!-- FIXME: 共通コンポーネントにする -->
-  <div class="tags flex flex-wrap gap-2">
-    {tags.map((tag) => <Tag tag={tag.tag} />)}
-  </div>
+  <TagsGroup tags={tags} hideCount={true} />
 
   <slot />
 </BaseLayout>

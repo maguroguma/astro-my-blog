@@ -1,0 +1,23 @@
+---
+import Tag from '@/components/Tag.astro';
+import type { Tag as TagType } from '@/scripts/types';
+
+interface Props {
+  tags: TagType[];
+  hideCount?: boolean;
+}
+
+const { tags, hideCount } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2">
+  {
+    tags.map((tag) =>
+      hideCount ? (
+        <Tag tag={tag.tag} />
+      ) : (
+        <Tag tag={tag.tag} count={tag.count} />
+      ),
+    )
+  }
+</div>

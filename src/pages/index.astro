@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PostsGrid from '@/components/PostsGrid.astro';
-import Tag from '@/components/Tag.astro';
+import TagsGroup from '@/components/TagsGroup.astro';
 import type { MarkdownBlogPost } from '@/scripts/types.ts';
 import { aggregateTags, topTags } from '@/scripts/tag';
 
@@ -47,7 +47,5 @@ const pageTitle = 'Leverage Copy';
   <PostsGrid posts={recentPosts} />
 
   <h2>タグから探す</h2>
-  <div class="flex flex-wrap">
-    {tags.map((tag) => <Tag tag={tag.tag} count={tag.count} />)}
-  </div>
+  <TagsGroup tags={tags} />
 </BaseLayout>
