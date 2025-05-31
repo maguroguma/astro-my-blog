@@ -8,16 +8,15 @@ const { tag, count } = Astro.props;
 ---
 
 <a
-  class="inline-block m-1 border border-gray-300 rounded-lg px-4 py-2 text-lg !bg-slate-50 text-inherit no-underline transition-all duration-200
-    hover:border-solid hover:border-blue-900 hover:!bg-slate-300 hover:-translate-y-0.5"
+  class="m-1 inline-block rounded-lg border border-gray-300 !bg-slate-50 px-4 py-2 text-lg text-inherit no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-solid hover:border-blue-900 hover:!bg-slate-300"
   href={`/tags/${tag}`}
 >
-  <p class="flex flex-row items-center gap-2 p-0 m-0">
+  <p class="m-0 flex flex-row items-center gap-2 p-0">
     <i class="fa fa-tags"></i>
     <span class="text-blue-900">{tag}</span>
     {
       count && (
-        <span class="inline-flex items-center justify-center min-w-6 h-6 px-2 bg-gray-200 rounded-full text-xs">
+        <span class="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-gray-200 px-2 text-xs">
           {count}
         </span>
       )
