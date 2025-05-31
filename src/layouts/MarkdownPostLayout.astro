@@ -12,44 +12,33 @@ const tags = aggregateTags([frontmatter.tags]);
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>
-    <span class="publish-date"
+  <p class="text-gray-600 mb-4">
+    <span class="mr-4"
       >投稿日: {frontmatter.pubDate.toString().slice(0, 10)}</span
     >
     {
       frontmatter.updatedAt && (
-        <span class="update-date">
-          <i class="fas fa-sync" />
+        <span class="flex items-center text-gray-500">
+          <i class="fas fa-sync mr-2" />
           {frontmatter.updatedAt.toString().slice(0, 10)}
         </span>
       )
     }
   </p>
-  <p><em>{frontmatter.description}</em></p>
+  <p class="italic text-gray-700 mb-4">{frontmatter.description}</p>
   {
     frontmatter.image && (
       <img
+        class="w-72 h-auto mb-4"
         src={frontmatter.image.url}
-        width="300"
         alt={frontmatter.image.alt}
       />
     )
   }
 
-  <div class="tags">
+  <div class="tags flex flex-wrap gap-2">
     {tags.map((tag) => <Tag tag={tag.tag} />)}
   </div>
 
   <slot />
 </BaseLayout>
-
-<style>
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .publish-date {
-    margin-right: 1rem;
-  }
-</style>
