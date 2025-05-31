@@ -7,66 +7,20 @@ interface Props {
 const { tag, count } = Astro.props;
 ---
 
-<a class="tag-link" href={`/tags/${tag}`}>
-  <p class="tag">
+<a
+  class="inline-block m-1 border border-gray-300 rounded-lg px-4 py-2 text-lg !bg-slate-50 text-inherit no-underline transition-all duration-200
+    hover:border-solid hover:border-blue-900 hover:!bg-slate-300 hover:-translate-y-0.5"
+  href={`/tags/${tag}`}
+>
+  <p class="flex flex-row items-center gap-2 p-0 m-0">
     <i class="fa fa-tags"></i>
-    <span class="tag-text">{tag}</span>
-    {count && <span class="tag-count">{count}</span>}
+    <span class="text-blue-900">{tag}</span>
+    {
+      count && (
+        <span class="inline-flex items-center justify-center min-w-6 h-6 px-2 bg-gray-200 rounded-full text-xs">
+          {count}
+        </span>
+      )
+    }
   </p>
 </a>
-
-<style>
-  .tag-link,
-  .tag-link:visited {
-    text-decoration: none;
-    color: inherit;
-
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
-
-    transition:
-      border 0.2s,
-      background-color 0.2s,
-      transform 0.2s;
-  }
-
-  .tag-link:hover {
-    border: solid 1px #00539f;
-    background-color: #e2e8f0;
-    transform: translateY(-0.1em);
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    padding: 0 0;
-    margin: 0 0;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .tag-text {
-    color: #00539f;
-  }
-  .tag-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 1.5rem;
-    height: 1.5rem;
-    padding: 0 0.5rem;
-    background-color: #eeeeee;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-  }
-</style>
