@@ -21,6 +21,7 @@ const pageTitle = 'タグ一覧';
 
 <BaseLayout pageTitle={pageTitle}>
   <h2>トピック別にブログ記事を探す</h2>
+  <!-- FIXME: 共通コンポーネントにする -->
   <div class="flex flex-wrap gap-2">
     {tags.map((tag) => <Tag tag={tag.tag} count={tag.count} />)}
   </div>
