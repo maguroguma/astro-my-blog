@@ -18,7 +18,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       </h2>
 
       <div
-        class="experiment-container rounded-lg bg-gray-50 p-6 dark:bg-gray-800"
+        class="rounded-lg bg-gray-50 p-6 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-800"
       >
         <h3 class="mb-3 text-lg font-medium">
           inline要素とinline-block要素の違い
@@ -30,7 +30,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             inline要素 (デフォルト)
           </h4>
           <div
-            class="demo-area rounded border-2 border-gray-300 p-4 dark:border-gray-600"
+            class="block min-h-16 rounded border-2 border-gray-300 p-4 leading-relaxed dark:border-gray-600"
           >
             <span
               class="mx-2.5 border-4 border-amber-500 bg-amber-100 px-4 py-6"
@@ -59,7 +59,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             inline-block要素
           </h4>
           <div
-            class="demo-area rounded border-2 border-gray-300 p-4 dark:border-gray-600"
+            class="block min-h-16 rounded border-2 border-gray-300 p-4 leading-relaxed dark:border-gray-600"
           >
             <span
               class="mx-2.5 my-2.5 inline-block h-15 w-50 border-2 border-green-500 bg-green-100 px-4 py-3"
@@ -88,7 +88,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             幅・高さ・マージンの比較
           </h4>
           <div
-            class="demo-area rounded border-2 border-gray-300 p-4 dark:border-gray-600"
+            class="block min-h-16 rounded border-2 border-gray-300 p-4 leading-relaxed dark:border-gray-600"
           >
             <div class="mb-4">
               <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
@@ -140,12 +140,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       </h2>
 
       <div
-        class="experiment-container rounded-lg bg-gray-50 p-6 dark:bg-gray-800"
+        class="rounded-lg bg-gray-50 p-6 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-800"
       >
         <h3 class="mb-3 text-lg font-medium">実験 2: 準備中</h3>
 
         <div
-          class="demo-area min-h-32 rounded border-2 border-dashed border-gray-300 p-4 dark:border-gray-600"
+          class="block min-h-32 rounded border-2 border-dashed border-gray-300 p-4 leading-relaxed dark:border-gray-600"
         >
           <p class="text-center text-gray-500 dark:text-gray-400">
             実験用エリア
@@ -174,21 +174,3 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     </section>
   </div>
 </BaseLayout>
-
-<style>
-  /* Custom styles for experiments can be added here */
-  .experiment-container {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .experiment-container:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .demo-area {
-    min-height: 4rem;
-    display: block;
-    line-height: 1.6;
-  }
-</style>
