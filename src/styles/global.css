@@ -71,3 +71,36 @@ html.dark code {
   color: #f8fafc;
   border-color: #4338ca;
 }
+
+/* Code block styling */
+pre {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border: 1px solid #475569;
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+html.dark pre {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+html.dark pre code {
+  background-color: transparent;
+  color: inherit;
+}
