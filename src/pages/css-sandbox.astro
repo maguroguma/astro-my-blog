@@ -1,0 +1,298 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Card from '@/components/Card.astro';
+---
+
+<BaseLayout pageTitle="CSS Sandbox - Every Layout">
+  <div class="mx-auto max-w-4xl p-6">
+    <div class="mb-8">
+      <p class="mb-4 text-gray-600 dark:text-gray-300">
+        このページは「Every
+        Layout」で学んだCSS技術を試すためのサンドボックスです。
+      </p>
+    </div>
+
+    <!-- Experiment sections -->
+    <section class="mb-12">
+      <h2 class="mb-4 border-b-2 border-blue-500 pb-2 text-2xl font-semibold">
+        実験 1: inline vs inline-block
+      </h2>
+
+      <Card>
+        <h3 class="mb-3 text-lg font-medium">
+          inline要素とinline-block要素の違い
+        </h3>
+
+        <!-- inline elements demonstration -->
+        <div class="mb-6">
+          <h4 class="mb-2 font-medium text-purple-600 dark:text-purple-400">
+            inline要素 (デフォルト)
+          </h4>
+          <Card variant="demo" class="p-4">
+            <span
+              class="mx-2.5 border-4 border-amber-500 bg-amber-100 px-4 py-6"
+              >要素1</span
+            >
+            <span
+              class="mx-2.5 border-2 border-amber-500 bg-amber-100 px-3 py-2"
+              >要素2</span
+            >
+            <span
+              class="mx-2.5 border-2 border-amber-500 bg-amber-100 px-3 py-2"
+              >要素3</span
+            >
+          </Card>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            Tailwind: <code
+              class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-700"
+              >inline</code
+            > (デフォルト)
+          </p>
+        </div>
+
+        <!-- inline-block elements demonstration -->
+        <div class="mb-6">
+          <h4 class="mb-2 font-medium text-green-600 dark:text-green-400">
+            inline-block要素
+          </h4>
+          <Card variant="demo" class="p-4">
+            <span
+              class="mx-2.5 my-2.5 inline-block h-15 w-50 border-2 border-green-500 bg-green-100 px-4 py-3"
+              >要素1</span
+            >
+            <span
+              class="mx-2.5 my-5 inline-block border-2 border-green-500 bg-green-100 px-3 py-2"
+              >要素2</span
+            >
+            <span
+              class="mx-2.5 inline-block border-2 border-green-500 bg-green-100 px-3 py-2"
+              >要素3</span
+            >
+          </Card>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            Tailwind: <code
+              class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-700"
+              >inline-block</code
+            >
+          </p>
+        </div>
+
+        <!-- Comparison with different widths and heights -->
+        <div class="mb-6">
+          <h4 class="mb-2 font-medium text-orange-600 dark:text-orange-400">
+            幅・高さ・マージンの比較
+          </h4>
+          <Card variant="demo" class="p-4">
+            <div class="mb-4">
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                inline: 幅・高さ・垂直マージンは無効
+              </p>
+              <span
+                class="my-4 h-12 w-36 border-2 border-pink-500 bg-pink-100 px-3 py-2"
+                >inline要素</span
+              >
+              <span
+                class="my-4 h-12 w-36 border-2 border-pink-500 bg-pink-100 px-3 py-2"
+                >隣の要素</span
+              >
+              <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                Tailwind: <code
+                  class="rounded bg-gray-100 px-1 dark:bg-gray-700"
+                  >w-36 h-12 my-4</code
+                > は無効
+              </p>
+            </div>
+            <div>
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                inline-block: 幅・高さ・全てのマージンが有効
+              </p>
+              <span
+                class="my-4 inline-block h-12 w-36 border-2 border-indigo-500 bg-indigo-100 px-3 py-2 align-top"
+                >inline-block要素</span
+              >
+              <span
+                class="my-4 inline-block h-12 w-36 border-2 border-indigo-500 bg-indigo-100 px-3 py-2 align-top"
+                >隣の要素</span
+              >
+              <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                Tailwind: <code
+                  class="rounded bg-gray-100 px-1 dark:bg-gray-700"
+                  >inline-block w-36 h-12 my-4 align-top</code
+                > は有効
+              </p>
+            </div>
+          </Card>
+        </div>
+      </Card>
+    </section>
+
+    <!-- Block elements demonstration -->
+    <section class="mb-12">
+      <h2 class="mb-4 border-b-2 border-green-500 pb-2 text-2xl font-semibold">
+        実験 2: block要素の特徴
+      </h2>
+
+      <Card>
+        <h3 class="mb-3 text-lg font-medium">block要素の幅と高さの特徴</h3>
+
+        <!-- Block element width demonstration -->
+        <div class="mb-6">
+          <h4 class="mb-2 font-medium text-blue-600 dark:text-blue-400">
+            ブロック要素の幅特性: 親要素の幅に収まる
+          </h4>
+          <Card variant="demo" class="p-4">
+            <div class="mb-4">
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                幅を指定していないブロック要素は親要素の幅いっぱいに広がります
+              </p>
+              <div
+                class="block border-2 border-teal-500 bg-teal-100 p-3 dark:bg-teal-900/30"
+              >
+                ブロック要素（デフォルト幅）
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                幅を指定したブロック要素でも、次の行に移動します
+              </p>
+              <div
+                class="block w-64 border-2 border-teal-500 bg-teal-100 p-3 dark:bg-teal-900/30"
+              >
+                ブロック要素（w-64指定）
+              </div>
+              <div
+                class="block w-32 border-2 border-teal-500 bg-teal-100 p-3 dark:bg-teal-900/30"
+              >
+                ブロック要素（w-32指定）
+              </div>
+            </div>
+          </Card>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            Tailwind: <code
+              class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-700"
+              >block</code
+            > (デフォルト)
+          </p>
+        </div>
+
+        <!-- Block element height demonstration -->
+        <div class="mb-6">
+          <h4 class="mb-2 font-medium text-purple-600 dark:text-purple-400">
+            ブロック要素の高さ特性: コンテンツ量に応じて自然に伸長
+          </h4>
+          <Card variant="demo" class="p-4">
+            <div class="mb-4">
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                短いコンテンツ
+              </p>
+              <div
+                class="block border-2 border-rose-500 bg-rose-100 p-3 dark:bg-rose-900/30"
+              >
+                短いテキスト
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                長いコンテンツ（高さが自動調整されます）
+              </p>
+              <div
+                class="block border-2 border-rose-500 bg-rose-100 p-3 dark:bg-rose-900/30"
+              >
+                これは長いテキストコンテンツです。ブロック要素は内部のコンテンツの量に応じて自動的に高さが調整されます。
+                改行があってもそれに応じて高さが伸びていきます。
+                これがブロック要素の重要な特徴の一つです。
+                親要素の幅に合わせて自動的に折り返しが発生し、
+                それに応じて高さも自然に調整されます。
+              </div>
+            </div>
+            <div>
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                高さを明示的に指定した場合
+              </p>
+              <div
+                class="block h-20 border-2 border-rose-500 bg-rose-100 p-3 dark:bg-rose-900/30"
+              >
+                高さh-20を指定したブロック要素
+              </div>
+            </div>
+          </Card>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            Tailwind: <code
+              class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-700"
+              >block</code
+            > + 内容に応じた自動高さ調整
+          </p>
+        </div>
+
+        <!-- Comparison with inline and inline-block -->
+        <div class="mb-6">
+          <h4 class="mb-2 font-medium text-amber-600 dark:text-amber-400">
+            比較: inline、inline-block、blockの違い
+          </h4>
+          <Card variant="demo" class="p-4">
+            <div class="mb-4">
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                inline: 横並び、幅・高さ無効
+              </p>
+              <span
+                class="border-2 border-gray-500 bg-gray-200 p-2 dark:bg-gray-700"
+                >inline1</span
+              >
+              <span
+                class="border-2 border-gray-500 bg-gray-200 p-2 dark:bg-gray-700"
+                >inline2</span
+              >
+            </div>
+            <div class="mb-4">
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                inline-block: 横並び、幅・高さ有効
+              </p>
+              <span
+                class="inline-block w-24 border-2 border-gray-500 bg-gray-200 p-2 dark:bg-gray-700"
+                >inline-block1</span
+              >
+              <span
+                class="inline-block w-24 border-2 border-gray-500 bg-gray-200 p-2 dark:bg-gray-700"
+                >inline-block2</span
+              >
+            </div>
+            <div>
+              <p class="mb-2 text-sm text-gray-600 dark:text-gray-300">
+                block: 縦並び、親要素幅に広がる
+              </p>
+              <div
+                class="block w-24 border-2 border-gray-500 bg-gray-200 p-2 dark:bg-gray-700"
+              >
+                block1
+              </div>
+              <div
+                class="block w-24 border-2 border-gray-500 bg-gray-200 p-2 dark:bg-gray-700"
+              >
+                block2
+              </div>
+            </div>
+          </Card>
+        </div>
+      </Card>
+    </section>
+
+    <!-- Notes section -->
+    <section class="mb-12">
+      <h2 class="mb-4 border-b-2 border-purple-500 pb-2 text-2xl font-semibold">
+        学習メモ
+      </h2>
+
+      <div
+        class="notes-container rounded-lg bg-yellow-50 p-6 dark:bg-yellow-900/20"
+      >
+        <ul
+          class="list-inside list-disc space-y-2 text-gray-700 dark:text-gray-300"
+        >
+          <li>Every Layout で学んだポイントをここに記録</li>
+          <li>実験で気づいたことを記録</li>
+          <li>参考になるリンクやリソース</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
