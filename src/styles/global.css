@@ -53,3 +53,20 @@ html.dark {
   background-color: #0d0950;
   color: #fff;
 }
+
+/* Inline code styling */
+code {
+  background-color: #e2e8f0;
+  color: #1e293b;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: 'Courier New', monospace;
+  border: 1px solid #cbd5e1;
+}
+
+html.dark code {
+  background-color: #1e3a8a;
+  color: #e0e7ff;
+  border-color: #3730a3;
+}
