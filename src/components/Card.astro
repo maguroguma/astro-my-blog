@@ -1,0 +1,22 @@
+---
+export interface Props {
+  class?: string;
+  variant?: 'default' | 'demo';
+}
+
+const { class: className = '', variant = 'default' } = Astro.props;
+
+const baseClasses = 'rounded-lg p-6';
+const variantClasses = {
+  default:
+    'bg-gray-50 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-800',
+  demo: 'block min-h-16 border-2 border-gray-300 leading-relaxed dark:border-gray-600',
+};
+
+const cardClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
+---
+
+<div class={cardClasses}>
+  <slot />
+</div>
+
