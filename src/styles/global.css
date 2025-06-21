@@ -6,6 +6,11 @@
 /* @import 'tailwindcss/preflight.css' layer(base); */
 @import 'tailwindcss/utilities.css' layer(utilities);
 
+/* CSS Variables */
+:root {
+  --line-height-base: 1.7; /* 和文を想定する */
+}
+
 /* すべての要素のボックスモデルをボーダーボックスに変更する */
 html *,
 ::before,
@@ -22,7 +27,7 @@ html {
 body {
   margin: 0 auto; /* コンテナを中央に配置する */
   width: 100%;
-  line-height: 1.7; /* 和文を想定する */
+  line-height: var(--line-height-base);
 }
 
 h1 {
