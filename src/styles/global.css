@@ -105,3 +105,54 @@ html.dark pre code {
   background-color: transparent;
   color: inherit;
 }
+
+/* Code block container with wrap toggle */
+.code-block-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+  background-color: #374151;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.wrap-toggle-button {
+  background-color: transparent;
+  color: #9ca3af;
+  border: 1px solid #6b7280;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-family-code);
+}
+
+.wrap-toggle-button:hover {
+  background-color: #4b5563;
+  color: #f3f4f6;
+}
+
+.code-block-container pre {
+  margin: 0;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Dark theme support for code block controls */
+html.dark .code-block-header {
+  background-color: #1e293b;
+}
+
+html.dark .wrap-toggle-button {
+  color: #cbd5e1;
+  border-color: #475569;
+}
+
+html.dark .wrap-toggle-button:hover {
+  background-color: #334155;
+  color: #f1f5f9;
+}
