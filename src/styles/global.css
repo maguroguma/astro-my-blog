@@ -178,6 +178,11 @@ pre code {
   color: var(--color-button-hover-text);
 }
 
+.wrap-toggle-button:focus {
+  outline: 2px solid var(--color-button-hover-text);
+  outline-offset: 2px;
+}
+
 .code-block-container pre {
   margin: 0;
   border-radius: 0 0 0.5rem 0.5rem;
