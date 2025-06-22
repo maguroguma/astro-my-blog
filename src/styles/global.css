@@ -70,6 +70,9 @@ html.dark {
   --color-scrollbar-track: #1e293b;
   --color-scrollbar-thumb: #475569;
   --color-scrollbar-thumb-hover: #64748b;
+
+  /* Text Color */
+  color: var(--color-text-inverse);
 }
 
 /* すべての要素のボックスモデルをボーダーボックスに変更する */
@@ -108,10 +111,6 @@ img {
   html {
     font-size: 16px;
   }
-}
-
-html.dark {
-  color: var(--color-text-inverse);
 }
 
 /* Inline code styling */
