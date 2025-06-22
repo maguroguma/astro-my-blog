@@ -34,6 +34,11 @@
   --color-button-border: #6b7280;
   --color-button-hover-bg: #4b5563;
   --color-button-hover-text: #f3f4f6;
+
+  /* Scrollbar Colors */
+  --color-scrollbar-track: #374151;
+  --color-scrollbar-thumb: #6b7280;
+  --color-scrollbar-thumb-hover: #9ca3af;
 }
 
 html.dark {
@@ -60,6 +65,11 @@ html.dark {
   --color-button-border: #475569;
   --color-button-hover-bg: #334155;
   --color-button-hover-text: #f1f5f9;
+
+  /* Scrollbar Colors */
+  --color-scrollbar-track: #1e293b;
+  --color-scrollbar-thumb: #475569;
+  --color-scrollbar-thumb-hover: #64748b;
 }
 
 /* すべての要素のボックスモデルをボーダーボックスに変更する */
@@ -172,4 +182,30 @@ pre code {
 .code-block-container pre {
   margin: 0;
   border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Custom scrollbar for code blocks */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: var(--color-scrollbar-track);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar styling */
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 }
