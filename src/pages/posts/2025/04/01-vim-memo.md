@@ -3,7 +3,7 @@ layout: '@/layouts/MarkdownPostLayout.astro'
 title: 'Vimmer 3年目が読む実践 Vim'
 pubDate: 2021-10-23
 description: 'Vimmer 3年目が実践 Vim を読み直して、有益と思った内容をまとめる…つもりだった。'
-tags: ["Vim", "本"]
+tags: ["Vim", "book"]
 ---
 [実践Vim](https://tatsu-zine.com/books/practical-vim)の復習。
 
