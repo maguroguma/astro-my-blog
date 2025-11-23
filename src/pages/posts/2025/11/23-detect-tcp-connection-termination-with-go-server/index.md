@@ -3,7 +3,7 @@ layout: '@/layouts/MarkdownPostLayout.astro'
 title: 'HTTP リクエストのキャンセルを Go の web server で検知する'
 pubDate: 2025-11-23
 description: '不要になった外部リソースの処理をキャンセルする方法について、調べた内容を簡単にまとめたもの。'
-tags: ["Go", "TCP/IP"]
+tags: ["Go", "TCP"]
 ---
 
 ## はじめに
