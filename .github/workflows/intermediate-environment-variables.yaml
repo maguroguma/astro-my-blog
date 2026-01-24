@@ -4,6 +4,6 @@ jobs:
   print:
     runs-on: ubuntu-latest
     env:
-      ACTOR: ${{ github.actor }}
+      ACTOR: ${{ github.actor }} # コンテキストの値は一度環境変数を経由させる
     steps:
       - run: echo "${ACTOR}" # スクリプトインジェクション攻撃を予防する

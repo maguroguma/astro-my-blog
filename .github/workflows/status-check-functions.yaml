@@ -4,6 +4,6 @@ jobs:
   fail:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
+      - run: exit 1 # ワークフロー全体としては、この時点で失敗となる
       - run: echo "Hello"
         if: ${{ failure() }} # ステータスチェック関数 failure
