@@ -2,16 +2,16 @@ name: Static workflow analysis
 on:
   pull_request:
     paths: ['.github/workflows/*.yml', 'github/workflows/*.yaml']
-defaults:
+defaults: # デフォルトシェル
   run:
     shell: bash
-concurrency:
+concurrency: # 古いワークフローを自動でキャンセルする
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   lint:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 5 # タイムアウト
     steps:
       - uses: actions/checkout@v6
       - run: |
